@@ -14,6 +14,8 @@
     - MyBatis: 2.2.2
 - MySql connector
     - for 5.7 MySql version
+- Actuator
+    - for health check etc
 
 ## (3) Editor used
 
@@ -33,7 +35,7 @@
 ```
 
 - default profile can also be run(port 8080)
-- RUN modes
+- RUN modes(either is OK)
     - Java Application(for IntelliJ community edition)
     - SpringBoot Application(for IntelliJ ultimate edition)
 
