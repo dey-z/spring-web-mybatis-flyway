@@ -16,6 +16,8 @@
     - for 5.7 MySql version
 - Actuator
     - for health check etc
+- Lombok
+    - as maven plugin
 
 ## (3) Editor & settings
 
