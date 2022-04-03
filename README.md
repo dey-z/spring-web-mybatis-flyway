@@ -17,7 +17,7 @@
 - Actuator
     - for health check etc
 
-## (3) Editor used
+## (3) Editor & settings
 
 - IntelliJ Idea
 - CheckStyle-IDEA plugin installed but real time scans disabled
