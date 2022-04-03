@@ -52,3 +52,21 @@ java -jar -Dspring.profiles.active=local target/usecasemib-0.0.1-SNAPSHOT.jar
 ```
 
 ## (6) MySQL is needed either dockerized or local
+
+## (7) sample uris
+
+- get
+
+> http://localhost:8080/api/targets
+
+- post
+
+> http://localhost:8099/api/targets/add?projectId=7&projectName=hello7&region=Hakodate
+
+- put
+
+> http://localhost:8099/api/targets/update/7?projectName=helloChange
+
+- delete
+
+> http://localhost:8099/api/targets/delete/3
