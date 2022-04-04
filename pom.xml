@@ -69,6 +69,7 @@
                             <artifactId>lombok</artifactId>
                         </exclude>
                     </excludes>
+                    <mainClass>co.jp.spring.usecasemib.UsecasemibApplication</mainClass>
                 </configuration>
             </plugin>
         </plugins>
