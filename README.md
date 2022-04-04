@@ -74,3 +74,10 @@ java -jar -Dspring.profiles.active=local target/usecasemib-0.0.1-SNAPSHOT.jar
 - delete
 
 > http://localhost:8099/api/targets/delete/3
+
+## (8) Running sample batch w/o web server start but active dependencies
+
+- RUN Modes(either is ok)
+    - IntelliJ application
+    - 👇 command if using jar
+  > java -cp target/usecasemib-0.0.1-SNAPSHOT.jar -Dloader.main=co.jp.spring.usecasemib.batch.Extraction org.springframework.boot.loader.PropertiesLauncher
