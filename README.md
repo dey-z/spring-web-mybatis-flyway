@@ -61,7 +61,7 @@ java -jar -Dspring.profiles.active=local target/usecasemib-0.0.1-SNAPSHOT.jar
 
 - get(, from master)
 
-> http://localhost:8080/api/targets
+> http://localhost:8080/api/targets  
 > http://localhost:8080/api/projects
 
 - post(will add project from master database)
