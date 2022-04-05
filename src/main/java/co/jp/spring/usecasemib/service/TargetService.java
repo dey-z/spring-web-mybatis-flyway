@@ -41,8 +41,8 @@ public class TargetService {
       target.setProjectId(project.getProjectId());
       target.setProjectName(project.getProjectName());
       target.setRegion(null);
+      targetMapper.add(withCreatedAtUpdatedAt(target));
     }
-    targetMapper.add(withCreatedAtUpdatedAt(target));
   }
 
   public void update(Target target) {
