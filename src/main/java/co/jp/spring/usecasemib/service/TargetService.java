@@ -1,6 +1,6 @@
 package co.jp.spring.usecasemib.service;
 
-import co.jp.spring.usecasemib.mapper.TargetMapper;
+import co.jp.spring.usecasemib.mapper.primary.TargetMapper;
 import co.jp.spring.usecasemib.model.Target;
 import java.util.Date;
 import java.util.List;

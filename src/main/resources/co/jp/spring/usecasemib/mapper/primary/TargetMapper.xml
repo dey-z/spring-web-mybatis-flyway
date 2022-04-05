@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="co.jp.spring.usecasemib.mapper.TargetMapper">
+<mapper namespace="co.jp.spring.usecasemib.mapper.primary.TargetMapper">
     <select id="findAll" resultType="co.jp.spring.usecasemib.model.Target">
         select *
         from T_PJ_List

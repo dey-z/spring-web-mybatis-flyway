@@ -1,4 +1,4 @@
-package co.jp.spring.usecasemib.mapper;
+package co.jp.spring.usecasemib.mapper.primary;
 
 import co.jp.spring.usecasemib.model.Target;
 import java.util.List;
