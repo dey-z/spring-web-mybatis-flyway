@@ -59,13 +59,14 @@ java -jar -Dspring.profiles.active=local target/usecasemib-0.0.1-SNAPSHOT.jar
 
 ## (7) sample uris
 
-- get
+- get(, from master)
 
 > http://localhost:8080/api/targets
+> http://localhost:8080/api/projects
 
-- post
+- post(will add project from master database)
 
-> http://localhost:8099/api/targets/add?projectId=7&projectName=hello7&region=Hakodate
+> http://localhost:8099/api/targets/add/1
 
 - put
 
@@ -81,3 +82,8 @@ java -jar -Dspring.profiles.active=local target/usecasemib-0.0.1-SNAPSHOT.jar
     - IntelliJ application
     - 👇 command if using jar
   > java -cp target/usecasemib-0.0.1-SNAPSHOT.jar -Dloader.main=co.jp.spring.usecasemib.batch.Extraction org.springframework.boot.loader.PropertiesLauncher
+
+## (9) Multi-DB datasource configured at startup with mybatis active
+
+- usecasemib
+- useasemib_master
