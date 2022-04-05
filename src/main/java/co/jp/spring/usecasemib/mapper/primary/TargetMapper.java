@@ -8,6 +8,8 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TargetMapper {
   List<Target> findAll();
 
+  Target findOne(String projectId);
+
   void add(Target target);
 
   void update(Target target);

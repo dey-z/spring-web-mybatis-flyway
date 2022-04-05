@@ -11,37 +11,33 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 
 @Configuration
-@MapperScan(basePackages = PrimaryDbConfig.BASE_PACKAGES
-    , sqlSessionTemplateRef = "primarySqlSessionTemplate")
-public class PrimaryDbConfig {
-  public static final String BASE_PACKAGES = "co.jp.spring.usecasemib.mapper.primary";
+@MapperScan(basePackages = MasterDbConfig.BASE_PACKAGES
+    , sqlSessionTemplateRef = "masterSqlSessionTemplate")
+public class MasterDbConfig {
+  public static final String BASE_PACKAGES = "co.jp.spring.usecasemib.mapper.master";
   public static final String MAPPER_XML_PATH =
-      "classpath:co/jp/spring/usecasemib/mapper/primary/*.xml";
+      "classpath:co/jp/spring/usecasemib/mapper/master/*.xml";
 
-  @Value("${spring.datasource.driver-class-name}")
+  @Value("${spring.master-datasource.driver-class-name}")
   private String driverClassName;
 
-  @Value("${spring.datasource.jdbc-url}")
+  @Value("${spring.master-datasource.jdbc-url}")
   private String jdbcUrl;
 
-  @Value("${spring.datasource.username}")
+  @Value("${spring.master-datasource.username}")
   private String username;
 
-  @Value("${spring.datasource.password}")
+  @Value("${spring.master-datasource.password}")
   private String password;
 
-  @Value("${spring.datasource.maximum-pool-size}")
-  private Integer maxPoolSize;
 
-  @Primary
-  @Bean(name = "primaryDataSource")
-  @ConfigurationProperties(prefix = "spring.datasource")
+  @Bean(name = "masterDataSource")
+  @ConfigurationProperties(prefix = "spring.master-datasource")
   public HikariDataSource dataSource() {
-    final HikariDataSource ds = DataSourceBuilder
+    return DataSourceBuilder
         .create()
         .driverClassName(driverClassName)
         .type(HikariDataSource.class)
@@ -49,17 +45,14 @@ public class PrimaryDbConfig {
         .username(username)
         .password(password)
         .build();
-    ds.setMaximumPoolSize(maxPoolSize);
-    return ds;
   }
 
-  @Primary
-  @Bean(name = "primarySqlSessionFactory")
+  @Bean(name = "masterSqlSessionFactory")
   public SqlSessionFactory sqlSessionFactory(
-      @Qualifier("primaryDataSource") HikariDataSource primaryDataSource)
+      @Qualifier("masterDataSource") HikariDataSource masterDataSource)
       throws Exception {
     SqlSessionFactoryBean bean = new SqlSessionFactoryBean();
-    bean.setDataSource(primaryDataSource);
+    bean.setDataSource(masterDataSource);
     bean.setMapperLocations(
         new PathMatchingResourcePatternResolver().getResources(MAPPER_XML_PATH));
     // custom Configs as we are customizing mybatis
@@ -70,9 +63,9 @@ public class PrimaryDbConfig {
     return bean.getObject();
   }
 
-  @Bean(name = "primarySqlSessionTemplate")
+  @Bean(name = "masterSqlSessionTemplate")
   public SqlSessionTemplate sqlSessionTemplate(
-      @Qualifier("primarySqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
+      @Qualifier("masterSqlSessionFactory") SqlSessionFactory sqlSessionFactory) throws Exception {
     return new SqlSessionTemplate(sqlSessionFactory);
   }
 }

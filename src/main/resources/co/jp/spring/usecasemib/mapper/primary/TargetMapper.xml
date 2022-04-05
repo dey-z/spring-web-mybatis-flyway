@@ -5,9 +5,11 @@
         select *
         from T_PJ_List
     </select>
-    <!--    <select id="findOne" resultType="co.jp.spring.usecasemib.model.Target">-->
-    <!--        select * from T_PJ_List where project_id = #{projectId}-->
-    <!--    </select>-->
+    <select id="findOne" resultType="co.jp.spring.usecasemib.model.Target">
+        select *
+        from T_PJ_List
+        where project_id = #{projectId}
+    </select>
     <insert id="add">
         insert into T_PJ_List (project_id, project_name, region, created_at, updated_at)
         values (#{projectId}, #{projectName}, #{region}, #{createdAt}, #{updatedAt})
