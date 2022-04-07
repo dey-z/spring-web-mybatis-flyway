@@ -25,7 +25,7 @@ public class MasterDbConfig {
   private String driverClassName;
 
   @Value("${spring.master-datasource.url}")
-  private String jdbcUrl;
+  private String url;
 
   @Value("${spring.master-datasource.username}")
   private String username;
@@ -41,7 +41,7 @@ public class MasterDbConfig {
         .create()
         .driverClassName(driverClassName)
         .type(HikariDataSource.class)
-        .url(jdbcUrl)
+        .url(url)
         .username(username)
         .password(password)
         .build();

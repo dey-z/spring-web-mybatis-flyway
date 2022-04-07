@@ -26,7 +26,7 @@ public class PrimaryDbConfig {
   private String driverClassName;
 
   @Value("${spring.datasource.url}")
-  private String jdbcUrl;
+  private String url;
 
   @Value("${spring.datasource.username}")
   private String username;
@@ -45,7 +45,7 @@ public class PrimaryDbConfig {
         .create()
         .driverClassName(driverClassName)
         .type(HikariDataSource.class)
-        .url(jdbcUrl)
+        .url(url)
         .username(username)
         .password(password)
         .build();
