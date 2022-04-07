@@ -87,3 +87,6 @@ java -jar -Dspring.profiles.active=local target/usecasemib-0.0.1-SNAPSHOT.jar
 
 - usecasemib
 - useasemib_master
+
+## (10) wiki
+wiki for help
