@@ -25,7 +25,7 @@ public class PrimaryDbConfig {
   @Value("${spring.datasource.driver-class-name}")
   private String driverClassName;
 
-  @Value("${spring.datasource.jdbc-url}")
+  @Value("${spring.datasource.url}")
   private String jdbcUrl;
 
   @Value("${spring.datasource.username}")

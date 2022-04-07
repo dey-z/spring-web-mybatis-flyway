@@ -24,7 +24,7 @@ public class MasterDbConfig {
   @Value("${spring.master-datasource.driver-class-name}")
   private String driverClassName;
 
-  @Value("${spring.master-datasource.jdbc-url}")
+  @Value("${spring.master-datasource.url}")
   private String jdbcUrl;
 
   @Value("${spring.master-datasource.username}")
