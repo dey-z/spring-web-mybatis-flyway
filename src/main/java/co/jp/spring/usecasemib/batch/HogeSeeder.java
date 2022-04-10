@@ -7,6 +7,7 @@ import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.jdbc.datasource.init.DataSourceInitializer;
 import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
@@ -23,11 +24,13 @@ public class HogeSeeder {
     ctx.close();
   }
 
-  @Bean(name = "hogeInitializer")
+  @Bean
+  @DependsOn({"flywayInitializer"})
   public DataSourceInitializer dataSourceInitializer(
       @Qualifier("primaryDataSource") HikariDataSource dataSource) {
     ResourceDatabasePopulator resourceDatabasePopulator = new ResourceDatabasePopulator();
     resourceDatabasePopulator.addScript(new ClassPathResource("db/seed/hoge.sql"));
+    // resourceDatabasePopulator.setContinueOnError(true);
     DataSourceInitializer dataSourceInitializer = new DataSourceInitializer();
     dataSourceInitializer.setDataSource(dataSource);
     dataSourceInitializer.setDatabasePopulator(resourceDatabasePopulator);
