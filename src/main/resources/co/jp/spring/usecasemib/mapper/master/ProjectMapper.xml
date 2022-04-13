@@ -3,11 +3,11 @@
 <mapper namespace="co.jp.spring.usecasemib.mapper.master.ProjectMapper">
     <select id="findAll" resultType="co.jp.spring.usecasemib.model.Project">
         select *
-        from V_PJ_Foo
+        from M_PJ_Foo
     </select>
     <select id="findOne" resultType="co.jp.spring.usecasemib.model.Project">
         select *
-        from V_PJ_Foo
+        from M_PJ_Foo
         where ProjectId = #{projectId}
     </select>
 </mapper>
