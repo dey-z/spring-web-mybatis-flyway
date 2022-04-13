@@ -89,4 +89,11 @@ java -jar -Dspring.profiles.active=local target/usecasemib-0.0.1-SNAPSHOT.jar
 - useasemib_master
 
 ## (10) wiki
+
 wiki for help
+
+## (11) create db
+
+```
+./create_and_init_db/init.sh
+```
