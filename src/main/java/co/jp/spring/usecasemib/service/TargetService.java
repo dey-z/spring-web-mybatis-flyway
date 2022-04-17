@@ -4,7 +4,6 @@ import co.jp.spring.usecasemib.mapper.master.ProjectMapper;
 import co.jp.spring.usecasemib.mapper.primary.TargetMapper;
 import co.jp.spring.usecasemib.model.Project;
 import co.jp.spring.usecasemib.model.Target;
-import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +30,7 @@ public class TargetService {
   }
 
   public void add(Target target) {
-    targetMapper.add(withCreatedAtUpdatedAt(target));
+    targetMapper.add(target);
   }
 
   public void addAsTarget(String projectId) {
@@ -41,29 +40,15 @@ public class TargetService {
       target.setProjectId(project.getProjectId());
       target.setProjectName(project.getProjectName());
       target.setRegion(null);
-      targetMapper.add(withCreatedAtUpdatedAt(target));
+      targetMapper.add(target);
     }
   }
 
   public void update(Target target) {
-    targetMapper.update(withUpdatedAt(target));
+    targetMapper.update(target);
   }
 
   public void delete(String projectId) {
     targetMapper.delete(projectId);
-  }
-
-  // TODO: need to move common stuff to utils
-  private Target withCreatedAtUpdatedAt(Target target) {
-    Date now = new Date();
-    target.setCreatedAt(now); // currently not UTC so needs refactor
-    target.setUpdatedAt(now); // currently not UTC so needs refactor
-    return target;
-  }
-
-  // TODO: need to move common stuff to utils
-  private Target withUpdatedAt(Target target) {
-    target.setUpdatedAt(new Date()); // currently not UTC so needs refactor
-    return target;
   }
 }
