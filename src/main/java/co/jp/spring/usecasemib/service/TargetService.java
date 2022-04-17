@@ -51,18 +51,4 @@ public class TargetService {
   public void delete(String projectId) {
     targetMapper.delete(projectId);
   }
-
-  // TODO: need to move common stuff to utils
-//  private Target withCreatedAtUpdatedAt(Target target) {
-//    Date now = new Date();
-//    target.setCreatedAt(now); // currently not UTC so needs refactor
-//    target.setUpdatedAt(now); // currently not UTC so needs refactor
-//    return target;
-//  }
-
-  // TODO: need to move common stuff to utils
-//  private Target withUpdatedAt(Target target) {
-//    target.setUpdatedAt(new Date()); // currently not UTC so needs refactor
-//    return target;
-//  }
 }
