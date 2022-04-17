@@ -11,15 +11,14 @@
         where project_id = #{projectId}
     </select>
     <insert id="add">
-        insert into T_PJ_List (project_id, project_name, region, created_at, updated_at)
-        values (#{projectId}, #{projectName}, #{region}, #{createdAt}, #{updatedAt})
+        insert into T_PJ_List (project_id, project_name, region)
+        values (#{projectId}, #{projectName}, #{region})
     </insert>
     <update id="update">
         update T_PJ_List
         <set>
             <if test="projectName != null">project_name=#{projectName},</if>
             <if test="region != null">region=#{region},</if>
-            <if test="updatedAt != null">updated_at=#{updatedAt},</if>
         </set>
         where project_id=#{projectId}
     </update>
